@@ -1,6 +1,7 @@
 let isgameover=false;
 let turn="X";
-
+let audioturn=new Audio("ting.mp3");
+let winaudio=new Audio("rimshot.mp3");
 const changeturn=()=>{
     return turn==="X"?"O":"X";
 }
@@ -19,6 +20,9 @@ const checkwin=()=>{
     win.forEach(e=>{
         if((boxtext[e[0]].innerText===boxtext[e[1]].innerText) && (boxtext[e[1]].innerText===boxtext[e[2]].innerText) && (boxtext[e[0]].innerText!=='')){
         document.querySelector('.info').innerText=boxtext[e[0]].innerText + " won";
+        setTimeout(()=>{
+        winaudio.play();
+        },1000);
         isgameover=true;
         document.querySelector(".line").style.width="30vw";
          document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw)rotate(${e[5]}deg)`;
@@ -35,6 +39,7 @@ Array.from(boxes).forEach(element => {
     element.addEventListener('click',()=>{
      if(boxtext.innerText===''){
      boxtext.innerText=turn;
+     audioturn.play();
      turn=changeturn();
      checkwin();
      
