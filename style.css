@@ -81,3 +81,25 @@ a{
 .bb-0{
     border-bottom: 0;
 }
+@media screen and (max-width:800px){
+    .gameContainer{
+       flex-wrap: wrap;
+    }
+    h1,.info{
+        font-size:15px;
+    }
+    .gameinfo{
+        margin-top:34px;
+    }
+    .container{
+        grid-template-rows: repeat(3,20vw);
+        grid-template-columns: repeat(3,20vw);
+    }
+    .line{
+        display:none;
+    }
+    .boxtext{
+        font-size:80px;
+        text-align:center;
+    }
+}
